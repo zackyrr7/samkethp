@@ -77,7 +77,7 @@ class Piliihan extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const Barang();
+              return const ScreenBarang();
             }));
           },
           child: Container(
