@@ -22,7 +22,6 @@ class _BarangState extends State<ScreenBarang> {
 
   @override
   void initState() {
-    // TODO: implement initState
     getData();
     super.initState();
   }
@@ -51,7 +50,7 @@ class _BarangState extends State<ScreenBarang> {
             itemBuilder: (context, index) {
               var barang = listBarang[index];
               return Padding(
-                padding: const EdgeInsets.fromLTRB(5, 5, 5, 0),
+                padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
                 child: GestureDetector(
                   onTap: () {
                     showDialog(

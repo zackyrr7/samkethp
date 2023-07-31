@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/constant.dart';
 
 import 'package:samekt/screen/barang.dart';
+import 'package:samekt/screen/pemesanan_screen.dart';
+import 'package:samekt/screen/pencairan_tabungan.dart';
 
 class Piliihan extends StatelessWidget {
   const Piliihan({
@@ -15,7 +17,11 @@ class Piliihan extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const PemesananScreen();
+            }));
+          },
           child: Container(
             height: ScreenUtil().setHeight(50),
             decoration: BoxDecoration(
@@ -45,7 +51,11 @@ class Piliihan extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const PencairanTabungan();
+            }));
+          },
           child: Container(
             height: ScreenUtil().setHeight(50),
             decoration: BoxDecoration(

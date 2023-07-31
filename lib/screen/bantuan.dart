@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/model/pertanyaan_model.dart';
 import 'package:samekt/model/repository_pertanyaan.dart';
-import 'package:samekt/widget/pertanyaan/pertanyaan_popup.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class Bantuan extends StatefulWidget {
@@ -108,7 +108,7 @@ Widget _buildPopupDialog(BuildContext context, pertanyaan) {
         Center(
             child: Text(
           pertanyaan.jawaban,
-          style: TextStyle(fontSize: ScreenUtil().setSp(20)),
+          style: TextStyle(fontSize: ScreenUtil().setSp(15)),
           textAlign: TextAlign.justify,
         ))
       ],
