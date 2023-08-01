@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:samekt/screen/screen_listrik.dart';
+import 'package:samekt/screen/screen_pdam.dart';
+import 'package:samekt/screen/screen_sedekah.dart';
 
 class PencairanTabungan extends StatelessWidget {
   const PencairanTabungan({super.key});
@@ -19,11 +22,21 @@ class PencairanTabungan extends StatelessWidget {
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: ScreenUtil().setHeight(10),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              SizedBox(
+                height: ScreenUtil().setHeight(10),
+              ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const SedekahScreen();
+                  }));
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(100),
                   width: ScreenUtil().setWidth(100),
@@ -83,7 +96,11 @@ class PencairanTabungan extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ScreenListrik();
+                  }));
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(100),
                   width: ScreenUtil().setWidth(100),
@@ -119,7 +136,11 @@ class PencairanTabungan extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ScreenPdam();
+                  }));
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(100),
                   width: ScreenUtil().setWidth(100),
@@ -133,7 +154,7 @@ class PencairanTabungan extends StatelessWidget {
                         height: ScreenUtil().setHeight(60),
                         width: ScreenUtil().setWidth(60),
                         child: const Image(
-                          image: AssetImage("assets/images/water-tap.png"),
+                          image: AssetImage("assets/images/handphone (1).png"),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -141,7 +162,7 @@ class PencairanTabungan extends StatelessWidget {
                         height: ScreenUtil().setHeight(5),
                       ),
                       Text(
-                        "Pembayaran PDAM",
+                        "Pungisian Pulsa",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                       )

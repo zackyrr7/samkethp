@@ -20,6 +20,7 @@ class _BerandaState extends State<Beranda> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(height: ScreenUtil().setHeight(10),),
               const NamaLogo(),
               const Point(),
               SizedBox(

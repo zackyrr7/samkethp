@@ -99,7 +99,7 @@ class _BarangState extends State<ScreenBarang> {
     return AlertDialog(
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Center(
               child: Text(
@@ -107,7 +107,14 @@ class _BarangState extends State<ScreenBarang> {
             style: TextStyle(fontSize: ScreenUtil().setSp(20)),
             textAlign: TextAlign.center,
           )),
-          Image(image: NetworkImage('$url2/storage/${barang.foto}')),
+          SizedBox(height: ScreenUtil().setHeight(5),),
+          Center(
+            child: SizedBox(
+                height: ScreenUtil().setHeight(300),
+                child:
+                    Image(image: NetworkImage('$url2/storage/${barang.foto}'),fit: BoxFit.cover,)),
+          ),
+          SizedBox(height: ScreenUtil().setHeight(5),),
           Center(
               child: Text(
             'Rp. ${barang.harga.toString()}',

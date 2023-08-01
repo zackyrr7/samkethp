@@ -32,301 +32,306 @@ class _AkunState extends State<Akun> {
         ],
         title: const Text("Akun"),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 10, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Informasi Akun",
-                  style: TextStyle(
-                    fontSize: ScreenUtil().setSp(15),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 8, 10, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Informasi Akun",
+                    style: TextStyle(
+                      fontSize: ScreenUtil().setSp(15),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: ((context) => _buildPopupDialog(context)));
+                    },
+                    child: Text(
+                      "Edit",
+                      style: TextStyle(
+                          color: Colors.lightBlue,
+                          fontSize: ScreenUtil().setSp(15)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(10),
+            ),
+            Container(
+              height: ScreenUtil().setHeight(100),
+              width: ScreenUtil().setWidth(360),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+                color: Colors.white,
+              ),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
+                  child: Text(
+                    "Nama",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: ((context) => _buildPopupDialog(context)));
-                  },
+                Center(
+                  child: Container(
+                    width: ScreenUtil().setWidth(350),
+                    height: ScreenUtil().setHeight(60),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Babayoo o asdasd awsdas qwdqdas rqweq dasd',
+                            style: TextStyle(fontSize: ScreenUtil().setSp(15)),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ]),
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(2),
+            ),
+            Container(
+              height: ScreenUtil().setHeight(100),
+              width: ScreenUtil().setWidth(360),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+                color: Colors.white,
+              ),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
                   child: Text(
-                    "Edit",
+                    "Email",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(12)),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: ScreenUtil().setWidth(350),
+                    height: ScreenUtil().setHeight(60),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Hazacky.ramadhan@gmail.comasdasdasdasddasdasd',
+                            style: TextStyle(fontSize: ScreenUtil().setSp(15)),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ]),
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(2),
+            ),
+            Container(
+              height: ScreenUtil().setHeight(100),
+              width: ScreenUtil().setWidth(360),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+                color: Colors.white,
+              ),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
+                  child: Text(
+                    "Nomor Hp",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(12)),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: ScreenUtil().setWidth(350),
+                    height: ScreenUtil().setHeight(60),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            '098673626531',
+                            style: TextStyle(fontSize: ScreenUtil().setSp(15)),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ]),
+            ),
+             SizedBox(
+              height: ScreenUtil().setHeight(2),
+            ),
+            Container(
+              height: ScreenUtil().setHeight(100),
+              width: ScreenUtil().setWidth(360),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+                color: Colors.white,
+              ),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
+                  child: Text(
+                    "Password",
+                    style: TextStyle(fontSize: ScreenUtil().setSp(12)),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    width: ScreenUtil().setWidth(350),
+                    height: ScreenUtil().setHeight(60),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            '******',
+                            style: TextStyle(fontSize: ScreenUtil().setSp(15)),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 8, 10, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Akun Kami",
                     style: TextStyle(
-                        color: Colors.lightBlue,
-                        fontSize: ScreenUtil().setSp(15)),
+                      fontSize: ScreenUtil().setSp(15),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                  child: GestureDetector(
+                    onTap: _openWa,
+                    child: Container(
+                      height: ScreenUtil().setHeight(50),
+                      width: ScreenUtil().setWidth(50),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60),
+                          color: Colors.white),
+                      child: Image(
+                        height: ScreenUtil().setHeight(40),
+                        width: ScreenUtil().setWidth(40),
+                        image: const AssetImage("assets/images/whatsapp.png"),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                  child: GestureDetector(
+                    onTap: _opentt,
+                    child: Container(
+                      height: ScreenUtil().setHeight(50),
+                      width: ScreenUtil().setWidth(50),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60),
+                          color: Colors.white),
+                      child: Image(
+                        height: ScreenUtil().setHeight(40),
+                        width: ScreenUtil().setWidth(40),
+                        image: const AssetImage("assets/images/tik-tok.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                  child: GestureDetector(
+                    onTap: _openIg,
+                    child: Container(
+                      height: ScreenUtil().setHeight(50),
+                      width: ScreenUtil().setWidth(50),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60),
+                          color: Colors.white),
+                      child: Image(
+                        height: ScreenUtil().setHeight(40),
+                        width: ScreenUtil().setWidth(40),
+                        image: const AssetImage("assets/images/instagram.png"),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
+                  child: GestureDetector(
+                    onTap: _openWeb,
+                    child: Container(
+                      height: ScreenUtil().setHeight(50),
+                      width: ScreenUtil().setWidth(50),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60),
+                          color: Colors.white),
+                      child: Image(
+                        height: ScreenUtil().setHeight(40),
+                        width: ScreenUtil().setWidth(40),
+                        image:
+                            const AssetImage("assets/images/world-wide-web.png"),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
                 )
               ],
-            ),
-          ),
-          SizedBox(
-            height: ScreenUtil().setHeight(10),
-          ),
-          Container(
-            height: ScreenUtil().setHeight(90),
-            width: ScreenUtil().setWidth(360),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              color: Colors.white,
-            ),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
-                child: Text(
-                  "Nama",
-                  style: TextStyle(fontSize: ScreenUtil().setSp(12)),
-                ),
-              ),
-              Center(
-                child: Container(
-                  width: ScreenUtil().setWidth(350),
-                  height: ScreenUtil().setHeight(60),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Babayoo o asdasd awsdas qwdqdas rqweq dasd',
-                          style: TextStyle(fontSize: ScreenUtil().setSp(15)),
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ]),
-          ),
-          SizedBox(
-            height: ScreenUtil().setHeight(2),
-          ),
-          Container(
-            height: ScreenUtil().setHeight(90),
-            width: ScreenUtil().setWidth(360),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              color: Colors.white,
-            ),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
-                child: Text(
-                  "Email",
-                  style: TextStyle(fontSize: ScreenUtil().setSp(12)),
-                ),
-              ),
-              Center(
-                child: Container(
-                  width: ScreenUtil().setWidth(350),
-                  height: ScreenUtil().setHeight(55),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Hazacky.ramadhan@gmail.comasdasdasdasddasdasd',
-                          style: TextStyle(fontSize: ScreenUtil().setSp(15)),
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ]),
-          ),
-          SizedBox(
-            height: ScreenUtil().setHeight(2),
-          ),
-          Container(
-            height: ScreenUtil().setHeight(70),
-            width: ScreenUtil().setWidth(360),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              color: Colors.white,
-            ),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
-                child: Text(
-                  "Nomor Hp",
-                  style: TextStyle(fontSize: ScreenUtil().setSp(12)),
-                ),
-              ),
-              Center(
-                child: Container(
-                  width: ScreenUtil().setWidth(350),
-                  height: ScreenUtil().setHeight(35),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          '098673626531',
-                          style: TextStyle(fontSize: ScreenUtil().setSp(15)),
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ]),
-          ),
-          Container(
-            height: ScreenUtil().setHeight(70),
-            width: ScreenUtil().setWidth(360),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-              color: Colors.white,
-            ),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 0, 3),
-                child: Text(
-                  "Password",
-                  style: TextStyle(fontSize: ScreenUtil().setSp(12)),
-                ),
-              ),
-              Center(
-                child: Container(
-                  width: ScreenUtil().setWidth(350),
-                  height: ScreenUtil().setHeight(35),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          '******',
-                          style: TextStyle(fontSize: ScreenUtil().setSp(15)),
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ]),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 10, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Akun Kami",
-                  style: TextStyle(
-                    fontSize: ScreenUtil().setSp(15),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
-                child: GestureDetector(
-                  onTap: _openWa,
-                  child: Container(
-                    height: ScreenUtil().setHeight(50),
-                    width: ScreenUtil().setWidth(50),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60),
-                        color: Colors.white),
-                    child: Image(
-                      height: ScreenUtil().setHeight(40),
-                      width: ScreenUtil().setWidth(40),
-                      image: const AssetImage("assets/images/whatsapp.png"),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
-                child: GestureDetector(
-                  onTap: _opentt,
-                  child: Container(
-                    height: ScreenUtil().setHeight(50),
-                    width: ScreenUtil().setWidth(50),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60),
-                        color: Colors.white),
-                    child: Image(
-                      height: ScreenUtil().setHeight(40),
-                      width: ScreenUtil().setWidth(40),
-                      image: const AssetImage("assets/images/tik-tok.png"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
-                child: GestureDetector(
-                  onTap: _openIg,
-                  child: Container(
-                    height: ScreenUtil().setHeight(50),
-                    width: ScreenUtil().setWidth(50),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60),
-                        color: Colors.white),
-                    child: Image(
-                      height: ScreenUtil().setHeight(40),
-                      width: ScreenUtil().setWidth(40),
-                      image: const AssetImage("assets/images/instagram.png"),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 8, 8, 0),
-                child: GestureDetector(
-                  onTap: _openWeb,
-                  child: Container(
-                    height: ScreenUtil().setHeight(50),
-                    width: ScreenUtil().setWidth(50),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60),
-                        color: Colors.white),
-                    child: Image(
-                      height: ScreenUtil().setHeight(40),
-                      width: ScreenUtil().setWidth(40),
-                      image:
-                          const AssetImage("assets/images/world-wide-web.png"),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -364,7 +369,7 @@ void _openWeb() async {
 
 Widget _buildPopupDialog(BuildContext context) {
   return AlertDialog(
-    title: Text("Edit Akun"),
+    title: const Text("Edit Akun"),
     content: Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -407,7 +412,7 @@ Widget _buildPopupDialog(BuildContext context) {
         SizedBox(
           height: ScreenUtil().setHeight(10),
         ),
-        ElevatedButton(onPressed: () {}, child: Text("Simpan"))
+        ElevatedButton(onPressed: () {}, child: const Text("Simpan"))
       ],
     ),
   );
