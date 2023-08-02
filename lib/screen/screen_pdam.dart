@@ -12,7 +12,7 @@ class ScreenPdam extends StatefulWidget {
 class _ScreenPdamState extends State<ScreenPdam> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text(
           "Pengisian Pulsa",
@@ -37,6 +37,7 @@ class _ScreenPdamState extends State<ScreenPdam> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
                           Icons.money,
@@ -60,6 +61,7 @@ class _ScreenPdamState extends State<ScreenPdam> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
                           Icons.phone,

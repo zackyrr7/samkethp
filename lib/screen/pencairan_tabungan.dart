@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:samekt/screen/emas_screen.dart';
 import 'package:samekt/screen/screen_listrik.dart';
 import 'package:samekt/screen/screen_pdam.dart';
 import 'package:samekt/screen/screen_sedekah.dart';
+import 'package:samekt/screen/wallet_screen.dart';
 
 class PencairanTabungan extends StatelessWidget {
   const PencairanTabungan({super.key});
@@ -66,7 +68,11 @@ class PencairanTabungan extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ScreenEmas();
+                  }));
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(100),
                   width: ScreenUtil().setWidth(100),
@@ -171,7 +177,11 @@ class PencairanTabungan extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const WalletScreen();
+                  }));
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(100),
                   width: ScreenUtil().setWidth(100),

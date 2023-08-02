@@ -37,6 +37,7 @@ class _ScreenListrikState extends State<ScreenListrik> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
                           Icons.electric_bolt,

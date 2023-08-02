@@ -16,7 +16,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
       appBar: AppBar(
         title: const Text(
           "Sedekah",
-          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -37,6 +37,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
                           Icons.handshake,
@@ -60,6 +61,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
                           Icons.phone,
@@ -75,15 +77,20 @@ class _SedekahScreenState extends State<SedekahScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(onTap: (){},
+              child: GestureDetector(
+                onTap: () {},
                 child: Container(
                   height: ScreenUtil().setHeight(40),
                   width: ScreenUtil().setWidth(200),
-                  decoration: BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: Text(
                       "Kirim",
-                      style: TextStyle(color: Colors.white,fontSize: ScreenUtil().setSp(15)),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: ScreenUtil().setSp(15)),
                     ),
                   ),
                 ),
