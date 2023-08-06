@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:samekt/screen/login.dart';
 import 'package:samekt/screen/register.dart';
 
 import 'package:samekt/theme.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           title: "Sampah Market",
           //defaul size = 360,690
           theme: buildThemeData(),
-          home: const Register(),
+          home: const LoginScreen(),
         );
       },
     );

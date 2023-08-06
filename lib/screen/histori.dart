@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:samekt/screen/pemasukan.dart';
+import 'package:samekt/screen/pengeluaran.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -35,8 +37,8 @@ class _HistoryState extends State<History> {
         },
         body: const TabBarView(
           children: <Widget>[
-            Icon(Icons.flight, size: 350),
-            Icon(Icons.directions_transit, size: 350),
+            PemasukanScreen(),
+            PengeluaranScreen(),
           ],
         ),
       )),

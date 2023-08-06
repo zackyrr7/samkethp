@@ -5,6 +5,7 @@ import 'package:samekt/model/repository_login.dart';
 
 import 'package:samekt/screen/register.dart';
 import 'package:samekt/widget/navbar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -111,10 +112,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       if (response) {
                         // ignore: use_build_context_synchronously
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const Navbar();
-                        }));
+                        // Navigator.pushReplacement(context,
+                        //     MaterialPageRoute(builder: (context) {
+                        //   return const Navbar();
+                        // }));
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => const Navbar()),
+                            (Route<dynamic> route) => false);
                       } else {
                         // ignore: use_build_context_synchronously
                         _showAlertDialog(context);
@@ -156,6 +162,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(color: Colors.blueAccent),
                         ))
                   ],
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(5),
+                ),
+                GestureDetector(
+                  onTap: _openWhatsAppChat,
+                  child: const Text(
+                    "Butuh Bantuan?",
+                    style: TextStyle(color: Colors.blueAccent),
+                  ),
                 )
               ],
             ),
@@ -191,4 +207,13 @@ _showAlertDialog(BuildContext context) {
       return alert;
     },
   );
+}
+
+void _openWhatsAppChat() async {
+  String phoneNumber = '+6281347771171';
+  String kalimat = 'Halo Admin';
+  String url = 'https://wa.me/$phoneNumber?text=$kalimat';
+
+  // ignore: deprecated_member_use
+  await launch(url);
 }
