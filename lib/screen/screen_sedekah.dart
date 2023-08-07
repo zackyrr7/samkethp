@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:samekt/model/repository_transaksi.dart';
 import 'package:samekt/widget/Beranda/point.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SedekahScreen extends StatefulWidget {
   const SedekahScreen({super.key});
@@ -10,6 +12,28 @@ class SedekahScreen extends StatefulWidget {
 }
 
 class _SedekahScreenState extends State<SedekahScreen> {
+  RepositoryTransaksi repository = RepositoryTransaksi();
+  final _totalController = TextEditingController();
+  final _nomorController = TextEditingController();
+  String jenis_transaksis_id = "1";
+  String jenis = "";
+  String id = '';
+
+  _loadid() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      id = (prefs.getString('id') ?? '');
+      print (id);
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadid();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +61,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    controller: _totalController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
@@ -61,6 +86,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                   child: TextFormField(
+                    controller: _nomorController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
@@ -78,7 +104,19 @@ class _SedekahScreenState extends State<SedekahScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () async {
+                  bool response = await repository.postTransaksi(
+                      jenis_transaksis_id,
+                      _totalController.text,
+                      _nomorController.text,
+                      jenis,
+                      id);
+                      if (response) {
+                        _showAlertDialogBerhasil(context);
+                      } else {
+                        _showAlertDialogGagal(context);
+                      }
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(40),
                   width: ScreenUtil().setWidth(200),
@@ -101,4 +139,58 @@ class _SedekahScreenState extends State<SedekahScreen> {
       ),
     );
   }
+}
+
+
+_showAlertDialogBerhasil(BuildContext context) async{
+  String message = '';
+  String message2 = '';
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  message = (prefs.getString('message') ?? '');
+  message2 = (prefs.getString('message2') ?? '');
+  Widget okButton = TextButton(onPressed: (){
+    Navigator.pop(context);
+  }, child: Text('Ok'));
+
+  AlertDialog alert = AlertDialog(
+    content: Column(children: [
+      Text(message),
+      Text(message2)
+    ]),
+    actions: [
+      okButton
+    ],
+  );
+
+  // ignore: use_build_context_synchronously
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+
+_showAlertDialogGagal(BuildContext context) async{
+  String message = '';
+  // // String message2 = '';
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  message = (prefs.getString('message') ?? '');
+  // // message2 = (prefs.getString('message2') ?? '');
+  Widget okButton = TextButton(onPressed: (){
+    Navigator.pop(context);
+  }, child: Text('Ok'));
+
+  AlertDialog alert = AlertDialog(
+    content: Text(message),actions: [
+      okButton
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
