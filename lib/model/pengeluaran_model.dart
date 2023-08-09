@@ -1,12 +1,12 @@
 class DataP {
   int total;
   String tanggal;
-  String status;
+  String jenis;
 
-  DataP({required this.total, required this.tanggal, required this.status});
+  DataP({required this.total, required this.tanggal, required this.jenis});
 
   factory DataP.fromJson(Map<String, dynamic> json) {
     return DataP(
-        total: json['total'], tanggal: json['tanggal'], status: json['status']);
+        total: json['total'], tanggal: json['tanggal'], jenis: json['jenis']);
   }
 }

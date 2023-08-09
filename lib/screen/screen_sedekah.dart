@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/model/repository_transaksi.dart';
 import 'package:samekt/widget/Beranda/point.dart';
+import 'package:samekt/widget/navbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SedekahScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
   final _totalController = TextEditingController();
   final _nomorController = TextEditingController();
   String jenis_transaksis_id = "1";
-  String jenis = "";
+  String jenis2 = "Sedekah";
   String id = '';
 
   _loadid() async {
@@ -109,7 +110,7 @@ class _SedekahScreenState extends State<SedekahScreen> {
                       jenis_transaksis_id,
                       _totalController.text,
                       _nomorController.text,
-                      jenis,
+                      jenis2,
                       id);
                       if (response) {
                         _showAlertDialogBerhasil(context);
@@ -149,14 +150,20 @@ _showAlertDialogBerhasil(BuildContext context) async{
   message = (prefs.getString('message') ?? '');
   message2 = (prefs.getString('message2') ?? '');
   Widget okButton = TextButton(onPressed: (){
-    Navigator.pop(context);
+    Navigator.push(context, MaterialPageRoute(builder:(context) {
+      return Navbar();
+    },));
   }, child: Text('Ok'));
 
   AlertDialog alert = AlertDialog(
-    content: Column(children: [
-      Text(message),
-      Text(message2)
-    ]),
+    content: SizedBox(height: ScreenUtil().setHeight(50),
+      child: Center(
+        child: Column(children: [
+          Text(message),
+          Text(message2)
+        ]),
+      ),
+    ),
     actions: [
       okButton
     ],

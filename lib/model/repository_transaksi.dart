@@ -24,6 +24,11 @@ class RepositoryTransaksi {
             print('Response Status: ${response.body}');
             if (jsonResponse['status'].toString() == '200') {
                sharedPreferences.setString("message", jsonResponse['message'].toString());
+               sharedPreferences.setString("message2", jsonResponse['message2'].toString());
+               print(total);
+               print(nomor);
+               print(jenis);
+               print(users_id);
               return true;
             }else if(jsonResponse['status'].toString() == '201') {
               sharedPreferences.setString("message", jsonResponse['message'].toString());
@@ -31,11 +36,21 @@ class RepositoryTransaksi {
               return true;
             } else {
               sharedPreferences.setString("message", jsonResponse['message'].toString());
+               print(total);
+               print(nomor);
+               print(jenis);
+               print(users_id);
+               print(jenis_transaksis_id);
               return false;
+              
             } 
               
             
           } else {
+             print(total);
+               print(nomor);
+               print(jenis);
+               print(users_id);
             return false;
           } 
         }catch(e) {

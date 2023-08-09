@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/model/repository_user.dart';
 import 'package:samekt/model/user_model.dart';
+import 'package:samekt/screen/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Akun extends StatefulWidget {
@@ -14,12 +16,25 @@ class Akun extends StatefulWidget {
 class _AkunState extends State<Akun> {
   ServiceAkun serviceApi = ServiceAkun();
   late Future<UserDetail?> listAkun;
+  late final SharedPreferences sharedPreferences;
+   String id = '';
+
+  _loadid() async {
+   
+        sharedPreferences = await SharedPreferences.getInstance();
+       
+    setState(() {
+      id = (sharedPreferences.getString('id') ?? '');
+      print (id);
+    });
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     listAkun = serviceApi.getAkun();
+    _loadid();
   }
 
   @override
@@ -28,7 +43,14 @@ class _AkunState extends State<Akun> {
       appBar: AppBar(
         actions: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              sharedPreferences.clear();
+                //sharedPreferences.commit();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => const LoginScreen()),
+                    (Route<dynamic> route) => false);
+            },
             child: Center(
                 child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
@@ -62,20 +84,20 @@ class _AkunState extends State<Akun> {
                           fontSize: ScreenUtil().setSp(15),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                              context: context,
-                              builder: ((context) =>
-                                  _buildPopupDialog(context)));
-                        },
-                        child: Text(
-                          "Edit",
-                          style: TextStyle(
-                              color: Colors.lightBlue,
-                              fontSize: ScreenUtil().setSp(15)),
-                        ),
-                      )
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     showDialog(
+                      //         context: context,
+                      //         builder: ((context) =>
+                      //             _buildPopupDialog(context)));
+                      //   },
+                      //   child: Text(
+                      //     "Edit",
+                      //     style: TextStyle(
+                      //         color: Colors.lightBlue,
+                      //         fontSize: ScreenUtil().setSp(15)),
+                      //   ),
+                      // )
                     ],
                   ),
                 ),

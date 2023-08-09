@@ -178,13 +178,17 @@ class _RegisterState extends State<Register> {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () async {
+                      
                       bool response = await repository.postRegister(
                         _emailController.text,
                         _passwordController.text,
                         _nameController.text,
                         _noHpContreoller.text,
                         _confirmPasswordController.text,
+                        
                       );
+                      print(_passwordController);
+                      print(_confirmPasswordController);
 
                       if (response) {
                         // ignore: use_build_context_synchronously

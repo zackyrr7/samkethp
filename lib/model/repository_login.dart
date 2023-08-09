@@ -20,6 +20,7 @@ class RepositoryLogin {
         print('Response Status: ${response.body}');
         if (jsonReponse['succes'].toString() == "true") {
           sharedPreferences.setString("id", jsonReponse['id'].toString());
+          sharedPreferences.setString('no_hp',jsonReponse['no_hp']).toString();
           print(jsonReponse['succes']);
           print(jsonReponse['id']);
 

@@ -47,8 +47,8 @@ class _PengeluaranScreenState extends State<PengeluaranScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Status transaksi: "),
-                      Text(listDataP[index].status,
+                      
+                      Text(listDataP[index].jenis,
                           style: TextStyle(
                             fontSize: ScreenUtil().setSp(15),
                           )),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:samekt/model/repository_transaksi.dart';
 import 'package:samekt/widget/Beranda/point.dart';
+import 'package:samekt/widget/navbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ScreenListrik extends StatefulWidget {
   const ScreenListrik({super.key});
@@ -10,6 +13,27 @@ class ScreenListrik extends StatefulWidget {
 }
 
 class _ScreenListrikState extends State<ScreenListrik> {
+   RepositoryTransaksi repository = RepositoryTransaksi();
+  final _totalController = TextEditingController();
+  final _nomorController = TextEditingController();
+  String jenis_transaksis_id = "1";
+  String jenis2 = "Voucher PLN";
+  String id = '';
+
+  _loadid() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      id = (prefs.getString('id') ?? '');
+      print (id);
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadid();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +60,7 @@ class _ScreenListrikState extends State<ScreenListrik> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
-                  child: TextFormField(
+                  child: TextFormField(controller: _totalController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                         icon: Icon(
@@ -60,7 +84,7 @@ class _ScreenListrikState extends State<ScreenListrik> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
-                  child: TextFormField(
+                  child: TextFormField(controller: _nomorController,
                     decoration: const InputDecoration(
                         icon: Icon(
                           Icons.phone,
@@ -77,7 +101,19 @@ class _ScreenListrikState extends State<ScreenListrik> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: () {},
+                 onTap: () async {
+                  bool response = await repository.postTransaksi(
+                      jenis_transaksis_id,
+                      _totalController.text,
+                      _nomorController.text,
+                      jenis2,
+                      id);
+                      if (response) {
+                        _showAlertDialogBerhasil(context);
+                      } else {
+                        _showAlertDialogGagal(context);
+                      }
+                },
                 child: Container(
                   height: ScreenUtil().setHeight(40),
                   width: ScreenUtil().setWidth(200),
@@ -100,4 +136,63 @@ class _ScreenListrikState extends State<ScreenListrik> {
       ),
     );
   }
+}
+
+_showAlertDialogBerhasil(BuildContext context) async{
+  String message = '';
+  String message2 = '';
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  message = (prefs.getString('message') ?? '');
+  message2 = (prefs.getString('message2') ?? '');
+  Widget okButton = TextButton(onPressed: (){
+    Navigator.push(context, MaterialPageRoute(builder:(context) {
+      return Navbar();
+    },));
+  }, child: Text('Ok'));
+
+  AlertDialog alert = AlertDialog(
+    content: SizedBox(height: ScreenUtil().setHeight(50),
+      child: Center(
+        child: Column(children: [
+          Text(message),
+          Text(message2)
+        ]),
+      ),
+    ),
+    actions: [
+      okButton
+    ],
+  );
+
+  // ignore: use_build_context_synchronously
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+
+_showAlertDialogGagal(BuildContext context) async{
+  String message = '';
+  // // String message2 = '';
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  message = (prefs.getString('message') ?? '');
+  // // message2 = (prefs.getString('message2') ?? '');
+  Widget okButton = TextButton(onPressed: (){
+    Navigator.pop(context);
+  }, child: Text('Ok'));
+
+  AlertDialog alert = AlertDialog(
+    content: Text(message),actions: [
+      okButton
+    ],
+  );
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
