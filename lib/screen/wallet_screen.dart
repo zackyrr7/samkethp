@@ -18,7 +18,7 @@ class _WalletScreenState extends State<WalletScreen> {
   final _totalController = TextEditingController();
   final _nomorController = TextEditingController();
   String jenis_transaksis_id = "1";
-  String jenis2 = "";
+  String jenis2 = "Dana";
   String id = '';
   
   static const List<String> list = <String>[

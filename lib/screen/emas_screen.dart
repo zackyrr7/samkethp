@@ -17,7 +17,7 @@ class _ScreenEmasState extends State<ScreenEmas> {
   
   String total = '0';
   String jenis_transaksis_id = "1";
-  String jenis2 = "";
+  String jenis2 = "Emas 0,025 gram (Rp 60.000)";
   String id = '';
   String no_hp = '';
   static const List<String> list = <String>[
