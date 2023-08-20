@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:samekt/model/pengeluaran_model.dart';
-import 'package:samekt/model/repository_pengeluaran.dart';
+import 'package:samekt/model/history_pesanan_model.dart';
+import 'package:samekt/model/repository_history_pemesanan.dart';
 
-class PengeluaranScreen extends StatefulWidget {
-  const PengeluaranScreen({super.key});
+class PemesananSelesaiScreen extends StatefulWidget {
+  const PemesananSelesaiScreen({super.key});
 
   @override
-  State<PengeluaranScreen> createState() => _PengeluaranScreenState();
+  State<PemesananSelesaiScreen> createState() => _PemesananSelesaiScreenState();
 }
 
-class _PengeluaranScreenState extends State<PengeluaranScreen> {
-  List<DataP> listDataP = [];
-  RepositoryPengeluaran repository = RepositoryPengeluaran();
+class _PemesananSelesaiScreenState extends State<PemesananSelesaiScreen> {
+  List<ListPesanan> listData = [];
+  RepositoryPemesanan repository = RepositoryPemesanan();
+
   getData() async {
-    listDataP = await repository.getPengeluaran();
+    listData = await repository.getSelesai();
     setState(() {});
   }
 
@@ -28,7 +29,7 @@ class _PengeluaranScreenState extends State<PengeluaranScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: listDataP.length,
+        itemCount: listData.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
@@ -38,33 +39,24 @@ class _PengeluaranScreenState extends State<PengeluaranScreen> {
               child: Column(
                 children: [
                   Text(
-                    listDataP[index].tanggal,
+                    listData[index].tanggal,
                     style: TextStyle(
                         fontSize: ScreenUtil().setSp(15),
                         fontWeight: FontWeight.bold),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(listDataP[index].jenis,
-                          style: TextStyle(
-                            fontSize: ScreenUtil().setSp(15),
-                          )),
-                    ],
-                  ),
+                  Text(listData[index].jenis,
+                      style: TextStyle(
+                        fontSize: ScreenUtil().setSp(15),
+                      )),
                   Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("- ",
+                        Text(listData[index].status,
                             style: TextStyle(
                                 fontSize: ScreenUtil().setSp(15),
-                                color: Colors.red)),
-                        Text(listDataP[index].total.toString(),
-                            style: TextStyle(
-                                fontSize: ScreenUtil().setSp(15),
-                                color: Colors.red)),
+                                color: Colors.green)),
                       ],
                     ),
                   )

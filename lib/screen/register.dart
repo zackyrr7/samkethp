@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/model/repository_register.dart';
@@ -101,7 +103,7 @@ class _RegisterState extends State<Register> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                           child: TextFormField(
-                            controller: _noHpContreoller,
+                            controller: _confirmPasswordController,
                             keyboardType: TextInputType.phone,
                             decoration: const InputDecoration(
                                 icon: Icon(
@@ -145,7 +147,7 @@ class _RegisterState extends State<Register> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
                           child: TextFormField(
-                            controller: _confirmPasswordController,
+                            controller: _noHpContreoller,
                             obscureText: _obscured2,
                             focusNode: textFieldFocusNode2,
                             decoration: InputDecoration(
@@ -178,17 +180,13 @@ class _RegisterState extends State<Register> {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () async {
-                      
                       bool response = await repository.postRegister(
                         _emailController.text,
                         _passwordController.text,
                         _nameController.text,
                         _noHpContreoller.text,
                         _confirmPasswordController.text,
-                        
                       );
-                      print(_passwordController);
-                      print(_confirmPasswordController);
 
                       if (response) {
                         // ignore: use_build_context_synchronously

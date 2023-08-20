@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/model/repository_user.dart';
@@ -17,21 +19,19 @@ class _AkunState extends State<Akun> {
   ServiceAkun serviceApi = ServiceAkun();
   late Future<UserDetail?> listAkun;
   late final SharedPreferences sharedPreferences;
-   String id = '';
+  String id = '';
 
   _loadid() async {
-   
-        sharedPreferences = await SharedPreferences.getInstance();
-       
+    sharedPreferences = await SharedPreferences.getInstance();
+
     setState(() {
       id = (sharedPreferences.getString('id') ?? '');
-      print (id);
+      print(id);
     });
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     listAkun = serviceApi.getAkun();
     _loadid();
@@ -41,15 +41,16 @@ class _AkunState extends State<Akun> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           GestureDetector(
             onTap: () {
               sharedPreferences.clear();
-                //sharedPreferences.commit();
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => const LoginScreen()),
-                    (Route<dynamic> route) => false);
+              //sharedPreferences.commit();
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const LoginScreen()),
+                  (Route<dynamic> route) => false);
             },
             child: Center(
                 child: Padding(

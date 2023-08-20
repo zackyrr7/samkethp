@@ -1,5 +1,5 @@
 class Data {
-  int saldo;
+  String saldo;
   String tanggal;
   String status;
 

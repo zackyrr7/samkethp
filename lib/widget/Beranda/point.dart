@@ -18,7 +18,6 @@ class _PointState extends State<Point> {
   late Future<Saldo?> listSaldo;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     listSaldo = serviceApi.getSaldo();
   }

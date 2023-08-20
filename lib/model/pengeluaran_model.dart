@@ -1,5 +1,5 @@
 class DataP {
-  int total;
+  String total;
   String tanggal;
   String jenis;
 

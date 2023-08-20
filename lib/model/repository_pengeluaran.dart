@@ -14,6 +14,7 @@ class RepositoryPengeluaran {
     var id = sharedPreferences.getString("id");
     final response = await http.get(Uri.parse('$baseurl/$id'));
     if (response.statusCode == 200) {
+      // ignore: avoid_print
       print(response.body);
       Iterable it = jsonDecode(response.body);
       List<DataP> data = it.map((e) => DataP.fromJson(e)).toList();

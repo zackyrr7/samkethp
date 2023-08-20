@@ -1,7 +1,7 @@
 class Barang {
   final String nama;
   final String foto;
-  final int harga;
+  final String harga;
 
   Barang({
     required this.nama,

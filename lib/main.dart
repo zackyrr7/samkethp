@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:samekt/screen/login.dart';
-import 'package:samekt/screen/register.dart';
 
 import 'package:samekt/theme.dart';
 import 'package:samekt/widget/navbar.dart';
@@ -24,21 +24,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   String id = '';
-    _loadid() async {
+  _loadid() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       id = (prefs.getString('id') ?? '');
-      print (id);
+      // ignore: avoid_print
+      print(id);
     });
   }
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loadid();
   }
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -46,22 +47,21 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) {
         if (id == '') {
           return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: "Sampah Market",
-          //defaul size = 360,690
-          theme: buildThemeData(),
-          home: const LoginScreen(),
-        );
-        } else{
-return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: "Sampah Market",
-          //defaul size = 360,690
-          theme: buildThemeData(),
-          home: const Navbar(),
-        );
+            debugShowCheckedModeBanner: false,
+            title: "Sampah Market",
+            //defaul size = 360,690
+            theme: buildThemeData(),
+            home: const LoginScreen(),
+          );
+        } else {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: "Sampah Market",
+            //defaul size = 360,690
+            theme: buildThemeData(),
+            home: const Navbar(),
+          );
         }
-        
       },
     );
   }

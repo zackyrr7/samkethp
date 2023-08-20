@@ -32,6 +32,11 @@ class RepositoryRegister {
           print(jsonReponse['succes']);
           return true;
         } else {
+          print(password);
+          print(confirm_password);
+
+          print(no_hp);
+          print(jsonReponse);
           return false;
         }
       } else {

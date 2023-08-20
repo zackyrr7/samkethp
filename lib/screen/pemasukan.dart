@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/model/pemasukan_model.dart';
@@ -23,7 +21,6 @@ class _PemasukanScreenState extends State<PemasukanScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -35,7 +32,7 @@ class _PemasukanScreenState extends State<PemasukanScreen> {
         itemCount: listData.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),

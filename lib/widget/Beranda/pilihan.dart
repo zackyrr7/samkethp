@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:samekt/constant.dart';
 
 import 'package:samekt/screen/barang.dart';
-import 'package:samekt/screen/pemesanan_screen.dart';
+import 'package:samekt/screen/list_pemesanan.dart';
+
 import 'package:samekt/screen/pencairan_tabungan.dart';
 
 class Piliihan extends StatelessWidget {
@@ -19,7 +20,7 @@ class Piliihan extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const PemesananScreen();
+              return const ListPemesananScreen();
             }));
           },
           child: Container(
