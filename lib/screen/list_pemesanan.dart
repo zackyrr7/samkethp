@@ -3,6 +3,7 @@ import 'package:samekt/screen/pemesanan_nunggu.dart';
 import 'package:samekt/screen/pemesanan_screen.dart';
 import 'package:samekt/screen/pemesanan_selesai.dart';
 import 'package:samekt/screen/pemesanan_verifikasi.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ListPemesananScreen extends StatefulWidget {
   const ListPemesananScreen({super.key});
@@ -29,21 +30,21 @@ class _ListPemesananScreenState extends State<ListPemesananScreen> {
                   indicator: BoxDecoration(
                       color: Colors.greenAccent,
                       borderRadius: BorderRadius.circular(20)),
-                  tabs: const [
+                  tabs:  [
                     Tab(
                         child: Text(
                       'Menunggu verifikasi',
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                     )),
                     Tab(
                         child: Text(
                       'Menunggu Penjemputan',
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                     )),
                     Tab(
                         child: Text(
                       'Pesanan Selesai',
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,style: TextStyle(fontSize: ScreenUtil().setSp(12)),
                     )),
                   ],
                 ),
@@ -64,7 +65,7 @@ class _ListPemesananScreenState extends State<ListPemesananScreen> {
               return const PemesananScreen();
             }));
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
     );
