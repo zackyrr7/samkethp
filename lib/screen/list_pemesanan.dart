@@ -22,7 +22,7 @@ class _ListPemesananScreenState extends State<ListPemesananScreen> {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                title: const Text('History'),
+                title: const Text('History Pemesanan'),
                 centerTitle: true,
                 pinned: true,
                 floating: true,

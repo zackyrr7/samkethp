@@ -254,7 +254,7 @@ _showAlertDialog(BuildContext context) {
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: const Text("Terjadi Kesalahan"),
-    content: const Text("Email sudah pernah terpakai"),
+    content: const Text("Silahkan Coba Lagi"),
     actions: [
       okButton,
     ],
