@@ -27,52 +27,58 @@ class _PengeluaranScreenState extends State<PengeluaranScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: listDataP.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                children: [
-                  Text(
-                    listDataP[index].tanggal,
-                    style: TextStyle(
-                        fontSize: ScreenUtil().setSp(15),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(listDataP[index].jenis,
-                          style: TextStyle(
-                            fontSize: ScreenUtil().setSp(15),
-                          )),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Row(
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: ListView.builder(
+          reverse: true,
+          shrinkWrap: true,
+          itemCount: listDataP.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  children: [
+                    Text(
+                      listDataP[index].tanggal,
+                      style: TextStyle(
+                          fontSize: ScreenUtil().setSp(15),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("- ",
+                        Text(listDataP[index].jenis,
                             style: TextStyle(
-                                fontSize: ScreenUtil().setSp(15),
-                                color: Colors.red)),
-                        Text(listDataP[index].total.toString(),
-                            style: TextStyle(
-                                fontSize: ScreenUtil().setSp(15),
-                                color: Colors.red)),
+                              fontSize: ScreenUtil().setSp(15),
+                            )),
                       ],
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("- ",
+                              style: TextStyle(
+                                  fontSize: ScreenUtil().setSp(15),
+                                  color: Colors.red)),
+                          Text(listDataP[index].total.toString(),
+                              style: TextStyle(
+                                  fontSize: ScreenUtil().setSp(15),
+                                  color: Colors.red)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

@@ -17,9 +17,9 @@ class ScreenEmas extends StatefulWidget {
 class _ScreenEmasState extends State<ScreenEmas> {
   RepositoryTransaksi repository = RepositoryTransaksi();
 
-  String total = '0';
+  String total = '60.000';
   String jenis_transaksis_id = "2";
-  String jenis2 = "Emas 0,025 gram (Rp 60.000)";
+  String jenis2 = "Emas 0,025 gram (Rp 60000)";
   String id = '';
   String no_hp = '';
   static const List<String> list = <String>[
@@ -90,10 +90,37 @@ class _ScreenEmasState extends State<ScreenEmas> {
                       color: Colors.black,
                     ),
                     onChanged: (String? value) {
+                      
                       // This is called when the user selects an item.
                       setState(() {
                         dropdownValue = value!;
                         jenis2 = dropdownValue;
+                        switch (value) {
+                        case "Emas 0,025 gram (Rp 60.000)":
+                        setState(() {
+                          total = '60000';
+                          print('total: $total');
+                        });
+                        break;
+                        case "Emas 0,05 gram (Rp 90.000)":
+                        setState(() {
+                          total = '90000';
+                          print('total: $total');
+                        });
+                        break;
+                        case "Emas 0,1 gram (Rp 150.000)":
+                        setState(() {
+                          total = '150000';
+                          print('total: $total');
+                        });
+                        break;
+                        case "Emas 0,2 gram (Rp 280.000)":
+                        setState(() {
+                          total = '280000';
+                          print('total: $total');
+                        });
+                        break;
+                      }
                       });
                     },
                     items: list.map<DropdownMenuItem<String>>((String value) {
